@@ -1,0 +1,20 @@
+flowchart TD
+    classDef entry fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#fff;
+    classDef service fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#fff;
+    classDef model fill:#FF9800,stroke:#E65100,stroke-width:2px,color:#fff;
+    classDef tool fill:#9C27B0,stroke:#6A1B9A,stroke-width:2px,color:#fff;
+    classDef default fill:#ECEFF1,stroke:#607D8B,stroke-width:1px,color:#263238;
+    main_py["main.py"]:::entry
+    config_py["config.py"]:::default
+    services_py["services.py"]:::service
+    analyzer_py["analyzer.py"]:::default
+    github_client_py["github_client.py"]:::service
+    models_py["models.py"]:::model
+    main_py --> config_py
+    main_py --> services_py
+    main_py --> analyzer_py
+    services_py --> config_py
+    services_py --> github_client_py
+    github_client_py --> config_py
+    analyzer_py --> models_py
+    analyzer_py --> services_py
